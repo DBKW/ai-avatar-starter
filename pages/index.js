@@ -1,4 +1,3 @@
-
 import { useCallback, useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -160,8 +159,21 @@ const Home = () => {
                     </a>
                 </div>
             </div>
+            <div className="generate-button">
+                <button onClick={generateAction}>Generate</button>
+                {/* Add random prompt generator button here */}
+            <div className='generate-button'>
+                <button onClick={randomPrompt}>Random Prompt Generator</button>
+            </div>
+            </div>
+        <div className="input">
+          <input
+            type="text"
+            placeholder="Kelly as 'pixar character, baseball player, politician', photorealistic, hdr, symmetrical face, 4k, 8k"
+            value={input}
+            onChange={onChange}
+          />
         </div>
-       
         {img && (
         <div className="output-content">
           <Image src={img} width={512} height={512} alt={finalPrompt} />
