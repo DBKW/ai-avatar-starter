@@ -148,7 +148,7 @@ const Home = () => {
                     className={
                         isGenerating ? 'generate-button loading' : 'generate-button'
                     }
-                    onClick={randomPrompt && generateAction}
+                    onClick={randomPrompt}
                     >
                         <div className="generate">
                             {isGenerating ? (
