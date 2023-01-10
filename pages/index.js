@@ -11,8 +11,14 @@ const Home = () => {
   const [retryCount, setRetryCount] = useState(maxRetries);
   const [isGenerating, setIsGenerating] = useState(false);
   const [finalPrompt, setFinalPrompt] = useState('');
+  const [promptArray, setPromptArray] = useState([
+    "Kelly as 'pixar character, baseball player, politician', photorealistic, hdr, symmetrical face, 4k, 8k",
+    "Kelly as a 'pirate, astronaut, dragon', cartoonish, hdr, asymmetrical face, 4k, 8k",
+    "Kelly as a 'magician, superhero, warrior', photorealistic, hdr, symmetrical face, 4k, 8k",
+    "Kelly as a 'chef, detective, explorer', cartoonish, hdr, asymmetrical face, 4k, 8k"
+  ])
 
-   const generateAction = async () => {
+  const generateAction = async () => {
     console.log('Generating...');
     if (isGenerating && retry === 0) return;
 
@@ -57,6 +63,12 @@ const Home = () => {
     setInput('');
     setImg(data.image);
     setIsGenerating(false);
+  };
+  
+  //Add randomPrompt function
+  const randomPrompt = () => {
+    const randomNumber = Math.floor(Math.random() * (promptArray.length));
+    setInput(promptArray[randomNumber]);
   };
 
   const sleep = (ms) => {
@@ -115,48 +127,30 @@ const Home = () => {
           </div>
           {/* Add prompt container here */}
           <div className="prompt-container">
-            {/* Add value property */}
-            <input className='prompt-box' value={input} onChange={onChange} />
-            <div className="prompt-buttons">
-              {/* Tweak classNames to change classes */}
-              <a 
-                className={
-                  isGenerating ? 'generate-button loading' : 'generate-button'
-                }
-                onClick={generateAction}
-                >
-                  {/* Tweak to show a loading indicator*/}
-                <div className="generate">
-                  {isGenerating ? (
-                    <span className="loader"></span>
-                  ) : (
-                  <p>Generate</p>
-                  )}
-                </div>
-              </a>
-            </div>
-          </div>
+          <h3>Prompt: {finalPrompt}</h3>
         </div>
-        {img && (
-          <div className="output-content">
-            <Image src={img} width={512} height={512} alt={finalPrompt} />
-            <p>{finalPrompt}</p>
-          </div>
-        )}
+        <div className="input">
+          <input
+            type="text"
+            placeholder="Kelly as 'pixar character, baseball player, politician', photorealistic, hdr, symmetrical face, 4k, 8k"
+            value={input}
+            onChange={onChange}
+          />
+        </div>
+        <div className="generate-button">
+          <button onClick={generateAction}>Generate</button>
+          {/* Add random prompt generator button here */}
+          <button onClick={randomPrompt}>Random Prompt Generator</button>
+        </div>
+        <div className="img-container">
+          {img && <Image src={img} width="250" height="250" />}
+        </div>
       </div>
-      <div className="badge-container grow">
-        <a
-          href="https://buildspace.so/builds/ai-avatar"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <div className="badge">
-            <Image src={buildspaceLogo} alt="buildspace logo" />
-            <p>build with buildspace</p>
-          </div>
-        </a>
+      <div className="footer">
+        <img src={buildspaceLogo} alt="buildspace logo" />
       </div>
     </div>
+</div>
   );
 };
 
