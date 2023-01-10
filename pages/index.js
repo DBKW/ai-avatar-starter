@@ -1,3 +1,4 @@
+
 import { useCallback, useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -127,7 +128,38 @@ const Home = () => {
           </div>
           {/* Add prompt container here */}
           <div className="prompt-container">
-          <h3>Prompt: {finalPrompt}</h3>
+            <input className='prompt-box' value={input} onChange={onChange} />
+            <div className="prompt-buttons">
+                <a
+                    className={
+                        isGenerating ? 'generate-button loading' : 'generate-button'
+                    }
+                    onClick={generateAction}
+                    >
+                        <div className="generate">
+                            {isGenerating ? (
+                                <span className="loader"></span>
+                            ) : (
+                            <p>Generate</p>
+                            )}
+                        </div>
+                    </a>
+                <a
+                    className={
+                        isGenerating ? 'generate-button loading' : 'generate-button'
+                    }
+                    onClick={randomPrompt}
+                    >
+                        <div className="generate">
+                            {isGenerating ? (
+                                <span className='loader'></span>
+                            ) : (
+                            <p>Random Prompt</p>
+                            )}
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
         <div className="input">
           <input
@@ -142,17 +174,27 @@ const Home = () => {
           {/* Add random prompt generator button here */}
           <button onClick={randomPrompt}>Random Prompt Generator</button>
         </div>
-        <div className="img-container">
-          {img && <Image src={img} width="250" height="250" />}
+        {img && (
+        <div className="output-content">
+          <Image src={img} width={512} height={512} alt={finalPrompt} />
+            <p>{finalPrompt}</p>
         </div>
+        )}
       </div>
-      <div className="footer">
-        <img src={buildspaceLogo} alt="buildspace logo" />
-      </div>
+      <div className="badge-container grow">
+        <a
+          href="https://buildspace.so/builds/ai-avatar"
+          target="_blank"
+          rel="noreferrer"
+        >
+            <div className="badge">   
+                <Image src={buildspaceLogo} alt="buildspace logo" />
+                <p>build with buildspace</p>
+            </div>
+        </a> 
     </div>
 </div>
   );
 };
 
 export default Home;
-
