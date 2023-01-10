@@ -172,6 +172,7 @@ const Home = () => {
         <div className="generate-button">
           <button onClick={generateAction}>Generate</button>
           {/* Add random prompt generator button here */}
+        <div className='generate-button'>
           <button onClick={randomPrompt}>Random Prompt Generator</button>
         </div>
         {img && (
@@ -193,6 +194,7 @@ const Home = () => {
             </div>
         </a> 
     </div>
+</div>
 </div>
   );
 };
