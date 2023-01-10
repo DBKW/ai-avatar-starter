@@ -20,7 +20,6 @@ const generateAction = async (req, res) => {
     if (response.ok) {
         console.log(response);
         const buffer = await response.arrayBuffer();
-        const base64 = bufferToBase64(buffer);
         res.status(200).json({ image: bufferToBase64(buffer) });
     }   else if (response.status === 503) {
         const json = await response.json();
@@ -28,6 +27,10 @@ const generateAction = async (req, res) => {
     }   else {
         const json = await response.json();
         res.status(response.status).json({ error: response.statusText });
+    }
+    console.log(response);
+    if (response.ok) {
+        let buffer = await response.arrayBuffer();
     }
   };
 
