@@ -13,10 +13,18 @@ const Home = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [finalPrompt, setFinalPrompt] = useState('');
   const [promptArray, setPromptArray] = useState([
-    "Kelly as 'pixar character, baseball player, politician', photorealistic, hdr, symmetrical face, 4k, 8k",
+    "Kelly as 'pixar character, baseball player, photorealistic, hdr, symmetrical face, 4k, 8k",
     "Kelly as a 'pirate, astronaut, dragon', cartoonish, hdr, asymmetrical face, 4k, 8k",
     "Kelly as a 'magician, superhero, warrior', photorealistic, hdr, symmetrical face, 4k, 8k",
-    "Kelly as a 'chef, detective, explorer', cartoonish, hdr, asymmetrical face, 4k, 8k"
+    "Kelly as a 'chef, detective, explorer', cartoonish, hdr, asymmetrical face, 4k, 8k",
+    "Kelly as samurai master, character art portrait, anime key visual, strong face, 8 k wallpaper, very high detailed, sharp focus, morandi color scheme, art station, by krenz cushart",
+    "Kelly as Pikachu commiting tax fraud, paperwork, exhausted, cute, really cute, cozy, by steve hanks, by lisa yuskavage, by serov valentin, by tarkovsky, 8 k render, detailed, cute cartoon style",
+    "Futuristic Vintage Medium Shot 1920's Poster with Cyberpunk, Kelly as a tron biker, with a cyberpunk city background, futuristic lighting, cinematic lighting, cozy lighting, 8k, cinematic poster vintage 1800s",
+    "Kelly as a cyborg pilot Russian man, interior cockpit, hyperdetailed, by john blanche",
+    "Kelly in a darkseid character portrait, wearing a black cloak, holding a large platinum shield, by peter mohrbacher, mark brooks, jim burns, wadim kashin, greg rutkowski, larry elmore, esao andrews, trending on artstation",
+    "Kelly is a cinematic portrait as a cute Mew riding large blue bubble, oil on canvas, masterpiece, trending on artstation, featured on pixiv, cinematic composition, dramatic pose, beautiful lighting, sharp, details, hyper-detailed, HD, HDR, 4K, 8K",
+    "Kelly as a spanish singer, eat grapes, divan, smoke, reinaissance, realism, dark ambience, velazquez",
+    "Kelly as a Manly muscular cat hybrid stroking chin under neon lights alleyway"
   ])
 
   const generateAction = async () => {
