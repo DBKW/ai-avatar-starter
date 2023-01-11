@@ -160,7 +160,7 @@ const Home = () => {
                     >
                         <div className="generate">
                             {isGenerating ? (
-                                <span className='loader'></span>
+                                <span></span>
                             ) : (
                             <p>Random Prompt</p>
                             )}
